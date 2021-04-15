@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="author" content="Instituto Geográfico Nacional">
+    <meta name="title" content="Visualizador Red GNSS"/>   
+    <title>Visualizador Red GNSS</title>
+    <link type="text/css" rel="stylesheet" href="https://componentes.ign.es/api-core/assets/css/apiign.ol.min.css">
+    <link href="https://componentes.ign.es/api-core/plugins/ignsearch/ignsearch.ol.min.css" rel="stylesheet" />
+    <link href="https://componentes.ign.es/api-core/plugins/attributions/attributions.ol.min.css" rel="stylesheet" />
+    <link href="https://componentes.ign.es/api-core/plugins/sharemap/sharemap.ol.min.css" rel="stylesheet" />
+    <link href="https://componentes.cnig.es/api-core/plugins/mousesrs/mousesrs.ol.min.css" rel="stylesheet" />
+    <link href="https://componentes.ign.es/api-core/plugins/toc/toc.ol.min.css" rel="stylesheet" />
+    <link href="https://componentes.ign.es/api-core/plugins/overviewmap/overviewmap.ol.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Icon Meta Tags -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png">
+    <link href="img/icon-hires.png" rel="icon" sizes="192x192" />
+    <link href="img/icon-normal.png" rel="icon" sizes="128x128" />
+
+</head>
+
+<body>
+    <div id="mapjs" class="m-container">
+        <button  id="btnlegend" class="apicnig-btn" title="Leyenda">
+            <svg aria-hidden="true" data-prefix="fas" data-icon="map-signs" class="svg-inline--fa fa-map-signs fa-w-16" xmlns="http://www.w3.org/2000/svg" viewBox="-128 -128 768 768"><path fill="white" d="M507.31 84.69L464 41.37c-6-6-14.14-9.37-22.63-9.37H288V16c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v16H56c-13.25 0-24 10.75-24 24v80c0 13.25 10.75 24 24 24h385.37c8.49 0 16.62-3.37 22.63-9.37l43.31-43.31c6.25-6.26 6.25-16.38 0-22.63zM224 496c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V384h-64v112zm232-272H288v-32h-64v32H70.63c-8.49 0-16.62 3.37-22.63 9.37L4.69 276.69c-6.25 6.25-6.25 16.38 0 22.63L48 342.63c6 6 14.14 9.37 22.63 9.37H456c13.25 0 24-10.75 24-24v-80c0-13.25-10.75-24-24-24z"/></svg>
+        </button>
+        <div  id="panellegend" class="apicnig-legend">
+            <p class="noselect">
+                <img src="img/empty-circle.svg" width="15px;" > CCAA
+            </p>
+            <p class="noselect">
+                <img src="img/empty-triangle.svg" width="15px;" alt="" class="src"> IGN
+            </p>
+
+        </div>
+    </div>
+    
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content" class="ol-popup-content">
+
+        </div>
+    </div>    
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/vendor/browser-polyfill.js"></script>
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/js/apiign.ol.min.js"></script>
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/js/configuration.js"></script>
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/plugins/ignsearch/ignsearch.ol.min.js"></script>
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/plugins/attributions/attributions.ol.min.js"></script>
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/plugins/sharemap/sharemap.ol.min.js"></script>
+    <script type="text/javascript" src="https://componentes.cnig.es/api-core/plugins/mousesrs/mousesrs.ol.min.js"></script>    
+    <script type="text/javascript" src="https://componentes.ign.es/api-core/plugins/overviewmap/overviewmap.ol.min.js"></script>
+    <script type="text/javascript" src="js/custompopup.js"></script>
+    <script type="text/javascript" src="js/refreshLyrVector.js"></script>
+    <script type="text/javascript" src="js/mapconfig.js"></script>
+
+    <script type="text/javascript">
+
+    
+
+
+    
+    </script>
+</body>
+
+</html>

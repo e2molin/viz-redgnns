@@ -5,14 +5,15 @@
  * Configuramos y añadimos los plugin
  */
 
+
 M.config.attributions.defaultAttribution = 'Instituto Geográfico Nacional';
 M.config.attributions.defaultURL = 'https://www.ign.es';
 
 const map = M.map({
             container: 'mapjs',
-            controls: ['backgroundlayers','panzoom', 'scaleline', 'rotate' , 'location'],//'scale*true'
+            controls: ['backgroundlayers','panzoom', 'scaleline', 'rotate' , 'location'],
             zoom: 5,
-            maxZoom: 20,
+            maxZoom: 22,
             minZoom: 4,
             projection: "EPSG:3857*m",
             center: {

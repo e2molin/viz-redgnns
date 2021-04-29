@@ -1,4 +1,5 @@
-const url = 'https://rep-gnss.es/visorgnss2/api/mapa/'; // URL fuente de los datos de estaciones GNSS
+//const url = 'https://rep-gnss.es/visorgnss2/api/mapa/'; // URL fuente de los datos de estaciones GNSS
+const url = 'http://localhost/apicnig/visores-configs/viz-redgnns/geojson.geojson';
 const intervalRefresh = 60000;                          // Frecuencia de refresco en milisegundos
 
 /**
@@ -38,6 +39,7 @@ const refrescarGNSS = (lyrVector) =>{
 }
 
 /*
+//Refrescamos la capa a los cinco segundos de arrancar
 window.setTimeout(function() {
 
   refrescarGNSS(REDGNSSCCAA);
@@ -45,6 +47,7 @@ window.setTimeout(function() {
 }, 5000);
 */
 
+//Refrescamos periodicamente la capa
 window.setInterval(function() {
 
   refrescarGNSS(REDGNSSCCAA);

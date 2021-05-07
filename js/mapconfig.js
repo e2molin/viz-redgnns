@@ -1,13 +1,22 @@
 /**
+ * ----------------------------------------------------------------------------------------------------------- 
+ * Configuración del mapa APICORE
+ * -----------------------------------------------------------------------------------------------------------
+ * 
  * Configuración del mapa del visualizador
  * Creamos un objeto mapa de APICNIG
  * Definimos las capas
  * Configuramos y añadimos los plugin
+ * 
+ * 🎃@e2molin
  */
-
 
 M.config.attributions.defaultAttribution = 'Instituto Geográfico Nacional';
 M.config.attributions.defaultURL = 'https://www.ign.es';
+
+const  urlDataEstaciones = 'https://www.ign.es/resources/geodesia/GNSS/SPTR_geo.json';
+
+// 🌍 e2m: definimos el mapa
 
 const map = M.map({
             container: 'mapjs',
@@ -23,16 +32,16 @@ const map = M.map({
             },
 });
 
-//e2m: esta es la capa que accede a la API de GNSS para acceder al estado de las estaciones
+//e2m: esta es la capa que accede a la API de GNSS para acceder al estado de las estaciones 📡
 const REDGNSSCCAA = new M.layer.GeoJSON({
     name: "Monitorización tiempo real",
-    url: "https://rep-gnss.es/visorgnss2/api/mapa/",
+    url: urlDataEstaciones,
     extract: true, //Si lo ponemos a false, sale el popup standard con las propiedades
 });
 
 
         
-//e2m: estilo complejo. Utilizo el elemento icon para simbolizar        
+// 🎨 e2m: estilo complejo. Utilizo el elemento icon para simbolizar        
 let estiloPoint = new M.style.Point({
                     icon: {
                             /**
@@ -45,18 +54,17 @@ let estiloPoint = new M.style.Point({
                              * Como valor devuelto por el return es la clase de Mapea que representa a la forma: M.style.form.TRIANGLE para el triángulo y M.style.form.CIRCLE para el círculo
                              */
                             form: function(feature,map) {
-                                if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                if (feature.getAttribute('red')==='ERGNSS'){
                                     return M.style.form.TRIANGLE;
-                                } else if (feature.getAttribute('propietario').trim()==='DIRECÇÃO-GERAL DO TERRITÓRIO'){
-                                    return M.style.form.NONE;
                                 }else{
                                     return M.style.form.CIRCLE;
+                                    //return M.style.form.NONE; //e2m: Si quisieramos que no se pintara, devolveríamos esto
                                 }
                                 
                             },
                             //e2m: luego sigo definiendo el resto de propiedades comunes a todos los símbolos       
                             radius: function(feature,map) {
-                                                if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                                if (feature.getAttribute('red')==='ERGNSS'){
                                                     return 8;
                                                 }else{
                                                     return 5;//5
@@ -65,7 +73,7 @@ let estiloPoint = new M.style.Point({
                             rotation: 3.14159,            // Giro el icono 180 en radianes
                             rotate: false,                // Activar rotacion con dispositivo
                             offset: function(feature,map) {
-                                if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                if (feature.getAttribute('red')==='ERGNSS'){
                                     return [0,0]
                                 }else{
                                     return [0,-3]
@@ -83,7 +91,7 @@ let estiloPoint = new M.style.Point({
                             },//'#8A0829',                  // Color de relleno
                             gradientcolor:  '#3e77f7',       // Color del borde
                             gradient:  function(feature,map) {
-                                                if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                                if (feature.getAttribute('red')==='ERGNSS'){
                                                     return false;
                                                 }else{
                                                     return false;
@@ -98,6 +106,10 @@ let estiloPoint = new M.style.Point({
 REDGNSSCCAA.setStyle(estiloPoint);// Asociamos a la capa el estilo definido
 
 map.addLayers([REDGNSSCCAA]);// Añadimos array con todas las capas definidas, en nuestro caso 1
+
+/**
+ * 🔌 Definición de plugins para esta versión
+ */
 
 const mp1 = new M.plugin.IGNSearch({
     servicesToSearch: 'gn',
@@ -125,7 +137,7 @@ const mp3 = new M.plugin.MouseSRS({
 });
 
 
-const mp5 = new M.plugin.OverviewMap({
+const mp4 = new M.plugin.OverviewMap({
         position: 'BL',
         collapsible: true,
         collapsed: true,            
@@ -135,7 +147,7 @@ const mp5 = new M.plugin.OverviewMap({
 map.addPlugin(mp1);
 map.addPlugin(mp2);
 map.addPlugin(mp3);
-map.addPlugin(mp5);
+map.addPlugin(mp4);
 
-//Añadimos el overlay para mostrar el popup
+//Añadimos la capa overlay para mostrar el popup
 addCustomPopup(map);

@@ -1,5 +1,18 @@
 /**
- * Utiliza la implementación de OL para crear un overlay en la que muestra el popup customizado 
+ * ----------------------------------------------------------------------------------------------------------- 
+ * Customización del popup 🎫 informativo
+ * -----------------------------------------------------------------------------------------------------------
+ * 
+ * Utilizamos la implementación de OL para crear un overlay en la que muestra el popup customizado con los atributos de las estaciones GNSS.
+ * Posiblemente se pueda hacer con la API, pero la utilización del popup está poco documentada. 
+ * Hace falta documentar con más ejemplos de customización el popup de la API.
+ * Mientasr uso esto. Vamos al lío.
+ * 
+ * 🎃@e2molin
+ */
+
+/**
+ * 
  * con los atributos de las estaciones GNSS.
  */
 
@@ -51,17 +64,17 @@ const addCustomPopup = (mapAPICNIG) =>{
       
       cadOUT = cadOUT + 
               `
-              <table style="width:100%;">
-              <tr><td style='text-align:center;''>${feature.get('nombre')}</td></tr>
+              <table style="width:100%; cursor:pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;">
               <tr><td style='text-align:center; color:white; background-color: steelblue; font-weight:bold;'>${feature.get('identificador')}</td></tr>
-              <tr><td>📡 ${feature.get('estado')==='Emitiendo' ? "<span style='color:green; font-weight:bold;'>Emitiendo</span>" : "<span style='color:red; font-weight:bold;'>Sin conexión</span>"}</td></tr>
-              <tr><td>📌 ${feature.get('localizacion')}</td></tr>
-              <tr><td>🌐 ${feature.get('web')}</td></tr>
-              <tr><td>🏰 ${feature.get('propietario')}</td></tr>
-              <tr><td>⏰ ${feature.get('tiempo')}</td></tr>
-              <tr><td>🛰 GPS: ${feature.get('gps')}</td></tr>
-              <tr><td>🛰 Glonass: ${feature.get('glonass')}</td></tr>
-              <tr><td>🔗 <a href='${feature.get('ftp')}' target='_blank'>${feature.get('ftp')}</a></td></tr>
+              <tr><td>
+                <span title="Localización">📡</span> ${feature.get('estado')==='Emitiendo' ? "<span style='color:green; font-weight:bold;'>Emitiendo</span>" : "<span style='color:red; font-weight:bold;'>Sin conexión</span>"}
+              </td></tr>
+              <tr><td><span title="Localización">📌</span> ${feature.get('localizacion')}</td></tr>
+              <tr><td><span title="Coordenadas">🌐</span> ${feature.get('coordenadas')}</td></tr>
+              <tr><td><span title="Propietario">🔐</span> ${feature.get('red')}</td></tr>
+              <tr><td><span title="Tiempo">⏰</span> ${feature.get('tiempo')}</td></tr>
+              <tr><td><span title="Número satélites GPS">📡</span> GPS: ${feature.get('gps')}</td></tr>
+              <tr><td><span title="Número satélites GLONASS">📡</span> GLONASS: ${feature.get('glo')}</td></tr>
               </table>
               <hr/>
               `;

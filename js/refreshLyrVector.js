@@ -1,6 +1,16 @@
-//const url = 'https://rep-gnss.es/visorgnss2/api/mapa/'; // URL fuente de los datos de estaciones GNSS
-const url = 'http://localhost/apicnig/visores-configs/viz-redgnns/geojson.geojson';
-const intervalRefresh = 60000;                          // Frecuencia de refresco en milisegundos
+/**
+ * ----------------------------------------------------------------------------------------------------------- 
+ * Procedimiento para el refresco de los datos.
+ * -----------------------------------------------------------------------------------------------------------
+ * 
+ * Periódicamente se llama a la función que consulta el geoJSON remoto y nos traemos los nuevos valores.
+ * Los elementos de la capa vectorial se borran y se sustituyen por lso que acabamos de traer.
+ * De esta manera evitamos recargar toda la página y el refresco de los datos.
+ * 
+ * 🎃@e2molin
+ */
+
+const intervalRefresh = 60000;  // Frecuencia de refresco en milisegundos
 
 /**
  * Refresco de los datos de estaciones GNSS
@@ -10,7 +20,7 @@ const intervalRefresh = 60000;                          // Frecuencia de refresc
 const refrescarGNSS = (lyrVector) =>{
 
     //Hacemos una petición al servicio que devuelve las estaciones GNSS. Usamos una promesa
-    fetch(url, {})
+    fetch(urlDataEstaciones, {})
       .then(response => response.json())
       .then(datajson => {
         // Obtenemos un array con los elementos
@@ -20,12 +30,12 @@ const refrescarGNSS = (lyrVector) =>{
           throw new Error('Los elementos obtenidos no son los esperados');
         }
 
-        //Para refrescar la capa, borramos sus elementos (features) y después los rellenamos con los que acabamos de descargar
+        // Para refrescar la capa, borramos sus elementos (features) y después los rellenamos con los que acabamos de descargar
         lyrVector.clear()
 
         // 👀OJO!! Los features que descargamos en el array featuresOL tienen formato Openlayers. Hay que transformarlos a formato APICNIG para que los admita la capa que hemos creado con el APICNIG.
         featuresOL.forEach(featureOL => {
-          lyrVector.addFeatures([M.impl.Feature.olFeature2Facade(featureOL)]);//Transformamos los features de tipo OL a Facade.
+          lyrVector.addFeatures([M.impl.Feature.olFeature2Facade(featureOL)]);// Transformamos los features de tipo OL a Facade.
         });
       
         const tempoTranscurrido = Date.now();
@@ -39,7 +49,7 @@ const refrescarGNSS = (lyrVector) =>{
 }
 
 /*
-//Refrescamos la capa a los cinco segundos de arrancar
+// 🚀 Refrescamos la capa a los cinco segundos de arrancar
 window.setTimeout(function() {
 
   refrescarGNSS(REDGNSSCCAA);
@@ -47,7 +57,7 @@ window.setTimeout(function() {
 }, 5000);
 */
 
-//Refrescamos periodicamente la capa
+// ⏳ Refrescamos periodicamente la capa
 window.setInterval(function() {
 
   refrescarGNSS(REDGNSSCCAA);

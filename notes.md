@@ -101,6 +101,21 @@ Cambios la URL de las estaciones GNSS 👉 [http://193.144.251.103:2101/geojson]
 * Es una URL interna. No podemos verificarla hasta que no nos den acceso.
 * Avisamos de que debe servirse bajo protocolo https.
 
+### 20200506 - Cambio de formato
+
+* "id": "1001"
+* "identificador": "ABAN"
+* "mountpoint": "ABAN3"
+* "localizacion": "Abanilla"
+* "red": "REGAM"
+* "coordenadas": "38.18N 1.05W"
+* "tiempo": "2021-05-06 08:39:57"
+* "estado": "Emitiendo"
+* "numestado": 1.0
+* "gps": "8"
+* "glo": "7"
+
+Los triangulitos son las estaciones del IGN, que tienen el campo red con valor 
 
 
 
@@ -129,4 +144,3 @@ Con el programa https://jakearchibald.github.io/svgomg/ podemos transformalo en 
 <svg aria-hidden="true" data-prefix="fas" data-icon="map-signs" class="svg-inline--fa fa-map-signs fa-w-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M507.31 84.69L464 41.37c-6-6-14.14-9.37-22.63-9.37H288V16c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v16H56c-13.25 0-24 10.75-24 24v80c0 13.25 10.75 24 24 24h385.37c8.49 0 16.62-3.37 22.63-9.37l43.31-43.31c6.25-6.26 6.25-16.38 0-22.63zM224 496c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V384h-64v112zm232-272H288v-32h-64v32H70.63c-8.49 0-16.62 3.37-22.63 9.37L4.69 276.69c-6.25 6.25-6.25 16.38 0 22.63L48 342.63c6 6 14.14 9.37 22.63 9.37H456c13.25 0 24-10.75 24-24v-80c0-13.25-10.75-24-24-24z"/></svg>
 ```
 Con el atributo *fill* definimos el color y con la propiedad *viewBox* definimos el tamaño. Si lo queremos más pequelño cambiamos los valores por defecto viewBox="0 0 512 512" por viewBox="128 128 768 768"
-

@@ -61,13 +61,16 @@ const addCustomPopup = (mapAPICNIG) =>{
     var cadOUT = "<hr/>";
 
     mapaOL.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-      
+
+      const nombreEstado = ESTADOS_CONEXION[feature.get('numestado')] || 'Emitiendo';
+      const colorEstado = COLORES_CONEXION[feature.get('numestado')] || 'green';
+
       cadOUT = cadOUT + 
               `
               <table style="width:100%; cursor:pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;">
               <tr><td style='text-align:center; color:white; background-color: steelblue; font-weight:bold;'>${feature.get('identificador')}</td></tr>
               <tr><td>
-                <span title="Localización">📡</span> ${feature.get('estado')==='Emitiendo' ? "<span style='color:green; font-weight:bold;'>Emitiendo</span>" : "<span style='color:red; font-weight:bold;'>Sin conexión</span>"}
+                <span title="Conexión">📡</span><span style='color:${colorEstado}; font-weight:bold;'> ${nombreEstado}</span>
               </td></tr>
               <tr><td><span title="Localización">📌</span> ${feature.get('localizacion')}</td></tr>
               <tr><td><span title="Coordenadas">🌐</span> ${feature.get('coordenadas')}</td></tr>

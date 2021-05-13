@@ -1,9 +1,9 @@
-# Visor GNSS
+# 👨‍💻 Develnotes - Visor GNSS
 
-## Tarea REDMINE
+## ☑️ Tarea en REDMINE
 https://www.guadaltel.es/redmine/issues/187623
 
-## Análisis previo de las necesidadeds
+## 🕵️‍♂️ Análisis previo de las necesidades
 
 Necesidad de un visor de las estaciones GNSS, que sustituya a la versión actual desarrollada con la API v2.7. El visor actual se encuentra en 👉 [http://redgae.ign.es/web/guest/inicio](http://redgae.ign.es/web/guest/inicio).
 
@@ -19,11 +19,17 @@ El nuevo visualizador utilizará la nueva versión de la APICNIG v3 o superior. 
 * Refresco de la capa de estaciones sin refrfescar la página al completo.
 * Botones y paneles.
 
+## 🔸 Puntos de partida
+
+* Este es el visualizador que hay que sustituir 👉 [http://redgae.ign.es/web/guest/inicio](http://redgae.ign.es/web/guest/inicio)
+* Este es el geojson del que se nutre y que se refresca temporalmente 👉 [https://rep-gnss.es/visorgnss2/api/mapa/](https://rep-gnss.es/visorgnss2/api/mapa/)
+* Prototipo para evaluar posibilidades 👉 [http://www.ign.es/resources/viewer/api-ejemplos/Redgae.html](http://www.ign.es/resources/viewer/api-ejemplos/Redgae.html)
+* Este es el portal en desarrollo para comprobar la página donde irá embebido [http://10.67.33.167:8081/web/ign/portal/gds-gnss-tiempo-real](http://10.67.33.167:8081/web/ign/portal/gds-gnss-tiempo-real)
 
 
-## Requisitos tras propuesta inicial
+## 🔸 Requisitos tras propuesta inicial
 
-He estado hablando con Sandra y te amplío algunos comentarios:
+Tras conversaciones iniciales con Sandra
 
 * Simbología (Está consensuada con Geodesia)
   * [x] Símbolos en azul.
@@ -37,6 +43,7 @@ He estado hablando con Sandra y te amplío algunos comentarios:
   * Que se vea Península, Baleares y Canarias de inicio.
   
  Optamos por prescindir del plugin *BackImgLayer* porque sólo se quieren tres capas de fondo. Para la simbología se utilizan las especificaciones recogidas en [https://github.com/IGN-CNIG/API-CNIG/wiki/M.style.Point](https://github.com/IGN-CNIG/API-CNIG/wiki/M.style.Point). 
+
  💡 Es necesario ampliar el Wiki recogiendo ejemplos de cómo customizar la simbología en función de propiedades de los elementos o el nivel de zoom.
  
  ```javascript
@@ -62,7 +69,7 @@ He estado hablando con Sandra y te amplío algunos comentarios:
  ```
    
 
-## Requisitos revisión 1
+## 📝 Requisitos tras revisión 1
 
 Móvil (en dispositivo, no en modo debug):
 
@@ -84,7 +91,7 @@ Móvil (en dispositivo, no en modo debug):
 
 > He cambiado los tamaños de la simbología, a ver si ahora solucionamos tanto la visualización como la facilidad para acertar sobre el icono.He cambiado el selector de capas de fondo, quitando el BackImgLayer y sustituyendo por el control standard, que es más discreto y se adapta mejor a los móviles. De esta manera no reproduzco el comportamiento de que la capa de fondo se sume al TOC, luego creo que matamos dos pájaros de un tiro 🐦🐦🔫.
 
-## Refresco, cierre del popup y leyenda
+## 📝 Refresco, cierre del popup y leyenda
 
 La opción de mantener el refresco completo de la página la descartamos porque es de usabilidad pobre 😓 e incómoda para la navegación. Nos planteamos un procedimiento periódico que, fijado un intervalo de tiempo configurable en desarrollo, que establecemos en 60 segundos, consulte la fuente de los datos, descargue los elementos del **geoJSON**, y sustituya los de la capa activa con las estaciones por los recién descargados.
 
@@ -94,14 +101,12 @@ Para mostrar la leyenda, incluimos un botón y un panel customizados según el e
 
 ## ⏳ Bitácora
 
-### 20200429 - Origen de estaciones GNSS.
+### 🔹 20200513 - Actualización de los colores simbología v2.0.1
 
-Cambios la URL de las estaciones GNSS 👉 [http://193.144.251.103:2101/geojson](http://193.144.251.103:2101/geojson).
+En función del estado emisión, se asignan colores a los símbolos.
 
-* Es una URL interna. No podemos verificarla hasta que no nos den acceso.
-* Avisamos de que debe servirse bajo protocolo https.
 
-### 20200506 - Cambio de formato
+### 🔹 20200506 - Cambio de formato 
 
 * "id": "1001"
 * "identificador": "ABAN"
@@ -117,20 +122,17 @@ Cambios la URL de las estaciones GNSS 👉 [http://193.144.251.103:2101/geojson]
 
 Los triangulitos son las estaciones del IGN, que tienen el campo red con valor 
 
+### 🔹 20200429 - Origen de estaciones GNSS.
 
+Cambios la URL de las estaciones GNSS 👉 [http://193.144.251.103:2101/geojson](http://193.144.251.103:2101/geojson).
 
+* Es una URL interna. No podemos verificarla hasta que no nos den acceso.
+* Avisamos de que debe servirse bajo protocolo https.
 
-## Puntos de partida
-
-* Este es el visualizador que hay que sustituir 👉 [http://redgae.ign.es/web/guest/inicio](http://redgae.ign.es/web/guest/inicio)
-* Este es el geojson del que se nutre y que se refresca temporalmente 👉 [https://rep-gnss.es/visorgnss2/api/mapa/](https://rep-gnss.es/visorgnss2/api/mapa/)
-* Prototipo para evaluar posibilidades 👉 [http://www.ign.es/resources/viewer/api-ejemplos/Redgae.html](http://www.ign.es/resources/viewer/api-ejemplos/Redgae.html)
-
-## Referencias
+## ⛲️ Referencias
 
 * API Documentation [https://componentes.ign.es/api-core/doc/](https://componentes.ign.es/api-core/doc/)
-
-http://10.67.33.167:8081/web/ign/portal/gds-gnss-tiempo-real
+* Visor GNSS [http://ntrip.rep-gnss.es](http://ntrip.rep-gnss.es/)
 
 
 ### Trabajando con SVG

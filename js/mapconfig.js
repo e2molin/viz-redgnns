@@ -16,6 +16,20 @@ M.config.attributions.defaultURL = 'https://www.ign.es';
 
 const  urlDataEstaciones = 'https://www.ign.es/resources/geodesia/GNSS/SPTR_geo.json';
 
+const ESTADOS_CONEXION = {
+    0:'Sin conexión',
+    1:'Emitiendo',
+    2:'Conexión lenta',
+    3:'Retardo muy alto',
+}
+const COLORES_CONEXION = {
+  0:'red',
+  1:'green',
+  2:'blue',
+  3:'orange',
+}
+
+
 // 🌍 e2m: definimos el mapa
 
 const map = M.map({
@@ -81,13 +95,16 @@ let estiloPoint = new M.style.Point({
                             },               // Desplazamiento en pixeles en los ejes X, Y con respecto a su posición según la coordenada
                             color: '#3e77f7',               // No es el color del símbolo, sino de un pequeño borde que ayuda al contraste con el mapa62, 119, 247
                             fill: function(feature,map) {
-                                                var colorPunto;
-                                                if ((feature.getAttribute('estado')==='Emitiendo')){
+                                                let colorPunto;
+                                                const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
+                                                colorPunto = colorEstado;
+                                                return colorPunto;
+                                                /*if ((feature.getAttribute('estado')==='Emitiendo')){
                                                     colorPunto = 'transparent';
                                                 }else{
                                                     colorPunto = 'red';
                                                 }
-                                                return colorPunto;
+                                                return colorPunto;*/
                             },//'#8A0829',                  // Color de relleno
                             gradientcolor:  '#3e77f7',       // Color del borde
                             gradient:  function(feature,map) {

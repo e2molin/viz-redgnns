@@ -55,5 +55,14 @@ En función del estado emisión, se asignan colores a los símbolos:
 
 Fijado un tiempo en milisegundos, la aplicación consulta un fichero en formato **geoJSON** con la información actualizada de las estaciones. Accede al fichero, lee su contenido, y sustituye los elementos de la capa por los recién leídos. El refresco no afecta a la aplicación, sino sólo a la capa de estaciones GNSS.
 
+## 🚀 Despliegue
 
+* [https://projects.develmap.com/redgae/](https://projects.develmap.com/redgae/)
 
+## ⛲️ Referencias
+
+* API Documentation [https://componentes.ign.es/api-core/doc/](https://componentes.ign.es/api-core/doc/)
+* [APICNIG Plugins](https://componentes.ign.es/api-core/test.html)
+* [Wiki APICNIG](https://github.com/IGN-CNIG/API-CNIG/wiki)
+* [Mapea Plugins](https://github.com/sigcorporativo-ja/mapea-plugins)
+* Visor GNSS [http://ntrip.rep-gnss.es](http://ntrip.rep-gnss.es/)

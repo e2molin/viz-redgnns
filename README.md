@@ -1,18 +1,38 @@
+<p align="center">
+  <img src="img/twitter-normal.png" height="152" />
+</p>
+<h1 align="center"><strong>VIZREDGAE</strong> <small>Visualizador red GNSS</small></h1>
+
+<p align="center">
+  <a title="Language" href="https://www.w3schools.com/html/" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=Lang&message=HTML&color=maroon">
+  </a>  
+  <a title="Language" href="https://www.w3schools.com/js/" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=Lang&message=Javascript&color=maroon">
+  </a>
+  <a title="Language" href="https://www.w3schools.com/css/" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=Lang&message=CSS3&color=maroon">
+  </a> 
+  <a title="Library" href="https://componentes.cnig.es/api-core/test.html" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=Lib&message=APICNIG&color=khaki">
+  </a>      
+  <br />
+  <br />
+</p>
+
 # Visualizador red GNSS
 
-![](img/twitter-normal.png)
-
-Las Comunidades Autónomas y el Instituto Geográfico Nacional proporcionan conjuntamente un servicio de posicionamiento diferencial GNSS en tiempo real para toda España. Para generar este servicio se utilizan las estaciones permanentes de las redes GNSS de las Comunidades Autónomas con las que existe un acuerdo de colaboración y de la Red Geodésica Nacional de Referencia de Estaciones Permanentes GNSS (ERGNSS). Algunas de las estaciones de la ERGNSS son compartidas entre el IGN y otras instituciones como Puertos del Estado y Comunidades Autónomas. La utilización de un mayor número de estaciones distribuidas por el territorio aumenta la fiabilidad del sistema al incrementarse la integridad del mismo.
+Las Comunidades Autónomas y el [Instituto Geográfico Nacional](https://www.ign.es) proporcionan conjuntamente un servicio de posicionamiento diferencial GNSS en tiempo real para toda España. Para generar este servicio se utilizan las estaciones permanentes de las redes GNSS de las Comunidades Autónomas con las que existe un acuerdo de colaboración y de la [Red Geodésica Nacional de Referencia de Estaciones Permanentes GNSS (ERGNSS)](https://www.ign.es/web/ign/portal/gds-gnss-estaciones-permanentes). Algunas de las estaciones de la ERGNSS son compartidas entre el IGN y otras instituciones como Puertos del Estado y Comunidades Autónomas. La utilización de un mayor número de estaciones distribuidas por el territorio aumenta la fiabilidad del sistema al incrementarse la integridad del mismo.
 
  ![Captura de la pantalla principal](img/captura01.jpg)
 
-## Funciones del visualizador
+## 🔹 Funciones del visualizador
 
 * Cambios de mapa base: Mapa, Imagen, Híbrido.
-* Buscador de topónimos IGN Search.
+* Buscador de topónimos **IGN Search**.
 * Información de coordenadas.
 * Localizador.
-* Herramienta pa mostrar al norte la cartografía.
+* Herramienta para mostrar al norte la cartografía.
 * Botón mostrar/ocultar leyenda.
 
 Al hacer clic sobre el punto que representa a la estación permanente, aparecerá una ventana emergente en la cual podremos ver la información del elemento
@@ -20,13 +40,20 @@ Al hacer clic sobre el punto que representa a la estación permanente, aparecer�
 * Código de identificación.
 * Estado de emisión.
 * Información de satélites.
-* Coordenadas
+* Coordenadas.
 * Propietario.
 * Actividad.
 
-## Actualización de capas
+En función del estado emisión, se asignan colores a los símbolos:
 
-Fijado un tiempo en milisegundos, la aplicación consulta un fichero en formato geoJSON con la información actualizada de las estaciones. Accede al fichero, lee su contenido, y sustituye los elementos de la capa por los recién leídos. El refresco no afecta a la aplcación, sino sólo a la capa de estaciones GNSS.
+* <span style='color:darkgreen; font-weight:bold'>Verde</span> – emitiendo
+* <span style='color:blue; font-weight:bold'>Azul</span> – conexión lenta
+* <span style='color:orangered; font-weight:bold'>Naranja</span> – retardo muy alto
+* <span style='color:red; font-weight:bold'>Rojo</span> – Sin conexión
+
+## 🔹 Actualización de capas
+
+Fijado un tiempo en milisegundos, la aplicación consulta un fichero en formato **geoJSON** con la información actualizada de las estaciones. Accede al fichero, lee su contenido, y sustituye los elementos de la capa por los recién leídos. El refresco no afecta a la aplicación, sino sólo a la capa de estaciones GNSS.
 
 
 

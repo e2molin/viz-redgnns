@@ -57,10 +57,12 @@ window.setTimeout(function() {
 }, 5000);
 */
 
-// ⏳ Refrescamos periodicamente la capa
+/**
+ * ⏳ Refresco periódico de la capa
+ * 
+ */
 window.setInterval(function() {
-
   refrescarGNSS(REDGNSSCCAA);
-
 }, intervalRefresh);
+
 

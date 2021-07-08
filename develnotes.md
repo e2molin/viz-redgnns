@@ -101,10 +101,20 @@ Para mostrar la leyenda, incluimos un botón y un panel customizados según el e
 
 ## ⏳ Bitácora
 
+### 🔹 20200708 - Cambiamos la URL del fichero con las estaciones
+
+La URL definitiva por ahora es
+
+* 🔗 [https://rep-gnss.es/visorgnss2/api/mapa/](https://rep-gnss.es/visorgnss2/api/mapa/)
+
 ### 🔹 20200513 - Actualización de los colores simbología v2.0.1
 
-En función del estado emisión, se asignan colores a los símbolos.
+En función del estado emisión, se asignan colores a los símbolos:
 
+* Verde – emitiendo
+* Azul – conexión lenta
+* Naranja – retardo muy alto
+* Rojo – Sin conexión
 
 ### 🔹 20200506 - Cambio de formato 
 

@@ -14,7 +14,8 @@
 M.config.attributions.defaultAttribution = 'Instituto Geográfico Nacional';
 M.config.attributions.defaultURL = 'https://www.ign.es';
 
-const  urlDataEstaciones = 'https://www.ign.es/resources/geodesia/GNSS/SPTR_geo.json';
+//const  urlDataEstaciones = 'https://www.ign.es/resources/geodesia/GNSS/SPTR_geo.json';
+const  urlDataEstaciones = 'https://rep-gnss.es/visorgnss2/api/mapa/';
 
 const ESTADOS_CONEXION = {
     0:'Sin conexión',

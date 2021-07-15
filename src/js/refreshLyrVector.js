@@ -10,14 +10,14 @@
  * 🎃@e2molin
  */
 
-const intervalRefresh = 60000;  // Frecuencia de refresco en milisegundos
+import { urlDataEstaciones } from "./configs.js";
 
 /**
  * Refresco de los datos de estaciones GNSS
  * 
  * @param {M.layer.Vector} lyrVector //Capa vectorial del APICNIG que refresca sus datos
  */
-const refrescarGNSS = (lyrVector) =>{
+const refreshLyrVector = (lyrVector) =>{
 
     //Hacemos una petición al servicio que devuelve las estaciones GNSS. Usamos una promesa
     fetch(urlDataEstaciones, {})
@@ -48,21 +48,6 @@ const refrescarGNSS = (lyrVector) =>{
 
 }
 
-/*
-// 🚀 Refrescamos la capa a los cinco segundos de arrancar
-window.setTimeout(function() {
-
-  refrescarGNSS(REDGNSSCCAA);
-
-}, 5000);
-*/
-
-/**
- * ⏳ Refresco periódico de la capa
- * 
- */
-window.setInterval(function() {
-  refrescarGNSS(REDGNSSCCAA);
-}, intervalRefresh);
+export {refreshLyrVector}
 
 

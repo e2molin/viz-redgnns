@@ -1,8 +1,7 @@
 <p align="center">
-  <img src="img/twitter-normal.png" height="152" />
+  <img src="assets/img/iconWebApp.png" height="152" />
 </p>
 <h1 align="center"><strong>VIZREDGAE</strong> <small>Visualizador red GNSS</small></h1>
-
 <p align="center">
   <a title="Language" href="https://www.w3schools.com/html/" target="_blank">
     <img src="https://img.shields.io/static/v1?label=Lang&message=HTML&color=maroon">
@@ -24,7 +23,7 @@
 
 Las Comunidades Autónomas y el [Instituto Geográfico Nacional](https://www.ign.es) proporcionan conjuntamente un servicio de posicionamiento diferencial GNSS en tiempo real para toda España. Para generar este servicio se utilizan las estaciones permanentes de las redes GNSS de las Comunidades Autónomas con las que existe un acuerdo de colaboración y de la [Red Geodésica Nacional de Referencia de Estaciones Permanentes GNSS (ERGNSS)](https://www.ign.es/web/ign/portal/gds-gnss-estaciones-permanentes). Algunas de las estaciones de la ERGNSS son compartidas entre el IGN y otras instituciones como Puertos del Estado y Comunidades Autónomas. La utilización de un mayor número de estaciones distribuidas por el territorio aumenta la fiabilidad del sistema al incrementarse la integridad del mismo.
 
- ![Captura de la pantalla principal](img/captura01.jpg)
+ ![Captura de la pantalla principal](assets/img/captura01.jpg)
 
 ## 🔹 Funciones del visualizador
 
@@ -57,10 +56,11 @@ Fijado un tiempo en milisegundos, la aplicación consulta un fichero en formato 
 
 ## 🚀 Despliegue
 
-* [https://projects.develmap.com/redgae/](https://projects.develmap.com/redgae/)
+* [https://projects.develmap.com/redgnss/](https://projects.develmap.com/redgnss/)
 
 ## ⛲️ Referencias
 
+* [Apuntes de desarrollo](develnotes.md)
 * API Documentation [https://componentes.ign.es/api-core/doc/](https://componentes.ign.es/api-core/doc/)
 * [APICNIG Plugins](https://componentes.ign.es/api-core/test.html)
 * [Wiki APICNIG](https://github.com/IGN-CNIG/API-CNIG/wiki)

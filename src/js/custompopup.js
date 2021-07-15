@@ -11,40 +11,7 @@
  * 🎃@e2molin
  */
 
-/**
- * 
- * con los atributos de las estaciones GNSS.
- */
-
-var container = document.getElementById('popup');
-var content = document.getElementById('popup-content');
-var closer = document.getElementById('popup-closer');
-
-var overlay = new ol.Overlay({
-    element: container,
-    autoPan: true,
-    autoPanAnimation: {
-                duration: 250,
-    },
-});
-
-/**
-  * Botón para cerrar el popup
-  * @return {boolean} Don't follow the href.
-  */
-closer.onclick = function () {
-    overlay.setPosition(undefined);
-    closer.blur();
-    return false;
-};
-
-container.addEventListener('click', (e) =>  {
-  overlay.setPosition(undefined);
-  closer.blur();
-  return false;
-});
-
-
+import { COLORES_CONEXION, ESTADOS_CONEXION } from "./configs.js";
 
 /**
  * 
@@ -52,6 +19,34 @@ container.addEventListener('click', (e) =>  {
  */
 const addCustomPopup = (mapAPICNIG) =>{
 
+  var container = document.getElementById('popup');
+  var content = document.getElementById('popup-content');
+  var closer = document.getElementById('popup-closer');
+
+  var overlay = new ol.Overlay({
+      element: container,
+      autoPan: true,
+      autoPanAnimation: {
+                  duration: 250,
+      },
+  });
+  
+  /**
+    * Botón para cerrar el popup
+    * @return {boolean} Don't follow the href.
+    */
+  closer.onclick = function () {
+      overlay.setPosition(undefined);
+      closer.blur();
+      return false;
+  };
+  
+  container.addEventListener('click', (e) =>  {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+  });
+  
   let mapaOL = mapAPICNIG.getMapImpl();
   mapaOL.addOverlay(overlay);
 
@@ -95,30 +90,6 @@ const addCustomPopup = (mapAPICNIG) =>{
   });
 
 }
+
+export {addCustomPopup}
     
-
-/**
- * Botón de la leyenda
- */
-
- document.getElementById('btnlegend').addEventListener('click', (e) =>  {
-  let elem = document.getElementById('panellegend');
-  if(elem.style.display == 'block') {
-      elem.style.display = 'none';
-  }
-  else {
-      elem.style.display = 'block';
-  }
-  });
-  document.getElementById('panellegend').addEventListener('click', (e) =>  {
-  let elem = document.getElementById('panellegend');
-  if(elem.style.display == 'block') {
-      elem.style.display = 'none';
-  }
-  else {
-      elem.style.display = 'block';
-  }
-  });
-
-
-  //

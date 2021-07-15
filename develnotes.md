@@ -1,9 +1,22 @@
 # 👨‍💻 Develnotes - Visor GNSS
 
-## ☑️ Tarea en REDMINE
-https://www.guadaltel.es/redmine/issues/187623
+<a name="contenidos"></a>
+* [🕵️‍♂️ Análisis previo de las necesidades](#analisis)
+* [🌅 Puntos de partida](#startpoints)
+  * [Requisitos tras propuesta inicial](#request1)
+  * [Requisitos tras revisión 1](#request2)
+  * [Refresco, cierre del popup y leyenda](#request3)
+* [⏳ Bitácora](#bitacora)
+* [📐 Stack de desarrollo](#stackdevel)
+  * [Configuraciones](#configs)
+* [⛲️ Referencias](#referencias)
 
-## 🕵️‍♂️ Análisis previo de las necesidades
+---
+
+## ☑️ Tarea en REDMINE
+[https://www.guadaltel.es/redmine/issues/187623](https://www.guadaltel.es/redmine/issues/187623)
+
+## 🕵️‍♂️ Análisis previo de las necesidades <a name="analisis"></a>
 
 Necesidad de un visor de las estaciones GNSS, que sustituya a la versión actual desarrollada con la API v2.7. El visor actual se encuentra en 👉 [http://redgae.ign.es/web/guest/inicio](http://redgae.ign.es/web/guest/inicio).
 
@@ -19,7 +32,11 @@ El nuevo visualizador utilizará la nueva versión de la APICNIG v3 o superior. 
 * Refresco de la capa de estaciones sin refrfescar la página al completo.
 * Botones y paneles.
 
-## 🔸 Puntos de partida
+---
+
+## 🌅 Puntos de partida <a name="startpoints"></a>
+
+[👆 Volver](#contenidos)
 
 * Este es el visualizador que hay que sustituir 👉 [http://redgae.ign.es/web/guest/inicio](http://redgae.ign.es/web/guest/inicio)
 * Este es el geojson del que se nutre y que se refresca temporalmente 👉 [https://rep-gnss.es/visorgnss2/api/mapa/](https://rep-gnss.es/visorgnss2/api/mapa/)
@@ -27,7 +44,9 @@ El nuevo visualizador utilizará la nueva versión de la APICNIG v3 o superior. 
 * Este es el portal en desarrollo para comprobar la página donde irá embebido [http://10.67.33.167:8081/web/ign/portal/gds-gnss-tiempo-real](http://10.67.33.167:8081/web/ign/portal/gds-gnss-tiempo-real)
 
 
-## 🔸 Requisitos tras propuesta inicial
+### 🔸 Requisitos tras propuesta inicial <a name="request1"></a>
+
+[👆 Volver](#contenidos)
 
 Tras conversaciones iniciales con Sandra
 
@@ -69,7 +88,9 @@ Tras conversaciones iniciales con Sandra
  ```
    
 
-## 📝 Requisitos tras revisión 1
+### 🔸 Requisitos tras revisión 1 <a name="request2"></a>
+
+[👆 Volver](#contenidos)
 
 Móvil (en dispositivo, no en modo debug):
 
@@ -91,7 +112,9 @@ Móvil (en dispositivo, no en modo debug):
 
 > He cambiado los tamaños de la simbología, a ver si ahora solucionamos tanto la visualización como la facilidad para acertar sobre el icono.He cambiado el selector de capas de fondo, quitando el BackImgLayer y sustituyendo por el control standard, que es más discreto y se adapta mejor a los móviles. De esta manera no reproduzco el comportamiento de que la capa de fondo se sume al TOC, luego creo que matamos dos pájaros de un tiro 🐦🐦🔫.
 
-## 📝 Refresco, cierre del popup y leyenda
+### 🔸 Refresco, cierre del popup y leyenda <a name="request3"></a>
+
+[👆 Volver](#contenidos)
 
 La opción de mantener el refresco completo de la página la descartamos porque es de usabilidad pobre 😓 e incómoda para la navegación. Nos planteamos un procedimiento periódico que, fijado un intervalo de tiempo configurable en desarrollo, que establecemos en 60 segundos, consulte la fuente de los datos, descargue los elementos del **geoJSON**, y sustituya los de la capa activa con las estaciones por los recién descargados.
 
@@ -99,7 +122,11 @@ El reducido tamaño de la pantalla en la versión móvil provoca que la ❌ de c
 
 Para mostrar la leyenda, incluimos un botón y un panel customizados según el estilo de la APICNIG con la descripción de la simbología. Dado que la capa de estaciones GNSS es la única capa que queremos mostrar, y tiene que estar siempre encendida, prescindimos del plugin [TOC].
 
-## ⏳ Bitácora
+---
+
+## ⏳ Bitácora <a name="bitacora"></a>
+
+[👆 Volver](#contenidos)
 
 ### 🔹 20200708 - Cambiamos la URL del fichero con las estaciones
 
@@ -139,7 +166,80 @@ Cambios la URL de las estaciones GNSS 👉 [http://193.144.251.103:2101/geojson]
 * Es una URL interna. No podemos verificarla hasta que no nos den acceso.
 * Avisamos de que debe servirse bajo protocolo https.
 
-## ⛲️ Referencias
+---
+
+## 📐 Stack de desarrollo <a name="stackdevel"></a>
+
+[👆 Volver](#contenidos)
+
+Para el desarrollo de este visualizador se ha utilizado Visual Studio Code como editor de código.
+
+El desarrollo se ha realizado utilizando módulos ESM. Este mecanismo nos permite exportar datos desde un fichero a otro, reutilizando contenido, haciendo el código más modular y organizando mejor nuestras aplicaciones o webs. Está técnica se conoce como separación de código o *code splitting*. 
+
+Esta es una forma de mejorar el rendimiento de un sitio web es aprovechar el caché del navegador, de manera que se sirvan de la memoria de la computadora o dispositivo los archivos que cambian muy poco (como imágenes, javascript y css) y que el navegador sólo tenga que descargar los archivos que hayan cambiado.
+
+En el ecosistema Javascript, existen ciertas herramientas denominadas automatizadores o bundlers. Se utilizan para generar un sólo archivo .js final donde se guardará todo el código Javascript de nuestra web o aplicación, que leerá el navegador.
+
+Este proyecto utiliza **Parcel** como empaquetador de aplicaciones web. Está basado en recursos. Un recurso puede ser cualquier archivo, sin embargo, parcel tiene soporte especial para algunos tipos de archivos como JavaScript, CSS, y HTML. [Parcel](https://parceljs.org/cli.html) analiza automáticamente las dependencias a las que se hace referencia en estos archivos y los incluye en el paquete de salida.
+
+### 🔸 Instalación de dependencias / *Install Dependencies* 
+
+Una vez clonado el proyecto, instalaremos las dependencias. PAra este proyecto sólo utilizamos Parcel como dependencia de desarrollo.
+
+```bash
+npm i
+```
+
+### 🔸 Arranque del servidor de desarrollo / *Run Application*
+
+```bash
+parcel src/index.html
+```
+
+### 🔸 Despliegue en producción de la aplicación / *Deploy Application*
+
+```bash
+parcel build src/index.html --public-url ./
+```
+
+**Parcel** utiliza como minificador de **HTML** *htmlnano*. Como utilizamos ficheros **SVG**, añadimos la opción en el fichero de configuración *.htmlnanorc.js*
+
+```json
+module.exports = {
+  "minifySvg": false
+}
+```
+
+Los ficheros para el despliegue aparecerán en la carpeta **dist**.
+
+
+### 📁 Estructura del código / *Code scaffolding*
+
+```any
+/
+├── assets 🌈               # Recursos
+├── dist 📁                  # Generado tras hacer un parcel build
+├── src 📦                  # Código fuente.
+└── ...
+```
+
+### 🎶 Configuraciones <a name="configs"></a>
+
+[👆 Volver](#contenidos)
+
+El fichero [config.js](src/js/config.js) contiene agrupados todos los parámetros configurables. 
+
+* Estados de conexión.
+* Colores de representación de los estados. [👉 Lista completa de colores](https://www.w3schools.com/colors/colors_names.asp)
+* Simbología aplicada en función del propietario. [👉 Lista completa de simbología](https://componentes.ign.es/api-core/wiki/#M.style.Point)
+* Tiempo de **refresco** de la capa de estaciones GNSS.
+* Fichero geojson con los datos de representación.
+ 
+---
+
+## ⛲️ Referencias <a name="referencias"></a>
+
+[👆 Volver](#contenidos)
 
 * API Documentation [https://componentes.ign.es/api-core/doc/](https://componentes.ign.es/api-core/doc/)
 * Visor GNSS [http://ntrip.rep-gnss.es](http://ntrip.rep-gnss.es/)

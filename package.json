@@ -1,0 +1,16 @@
+{
+  "name": "redgnss",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./"
+  },
+  "keywords": [],
+  "author": "Esteban E. Molin <esteban.emolin@gmail.com> (https://www.develmap.com/cvitae/)",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

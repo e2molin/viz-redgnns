@@ -172,7 +172,10 @@ Cambios la URL de las estaciones GNSS 👉 [http://193.144.251.103:2101/geojson]
 
 [👆 Volver](#contenidos)
 
-Para el desarrollo de este visualizador se ha utilizado Visual Studio Code como editor de código.
+Para el desarrollo de este visualizador se ha utilizado Visual Studio Code como editor de código. Para la gestión de paquetes:
+
+* NodeJS Version: 14.16
+* NPM Version: 6.14.11
 
 El desarrollo se ha realizado utilizando módulos ESM. Este mecanismo nos permite exportar datos desde un fichero a otro, reutilizando contenido, haciendo el código más modular y organizando mejor nuestras aplicaciones o webs. Está técnica se conoce como separación de código o *code splitting*. 
 

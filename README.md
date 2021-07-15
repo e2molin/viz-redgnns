@@ -56,7 +56,8 @@ Fijado un tiempo en milisegundos, la aplicación consulta un fichero en formato 
 
 ## 🚀 Despliegue
 
-* [https://projects.develmap.com/redgnss/](https://projects.develmap.com/redgnss/)
+* En web pública [https://projects.develmap.com/redgnss/](https://projects.develmap.com/redgnss/)
+* En desarrollo en intranet [http://10.67.33.171/web/mashups/redgnss/](http://10.67.33.171/web/mashups/redgnss/)
 
 ## ⛲️ Referencias
 
@@ -65,4 +66,4 @@ Fijado un tiempo en milisegundos, la aplicación consulta un fichero en formato 
 * [APICNIG Plugins](https://componentes.ign.es/api-core/test.html)
 * [Wiki APICNIG](https://github.com/IGN-CNIG/API-CNIG/wiki)
 * [Mapea Plugins](https://github.com/sigcorporativo-ja/mapea-plugins)
-* Visor GNSS [http://ntrip.rep-gnss.es](http://ntrip.rep-gnss.es/)
+* Visualizador GNSS [http://ntrip.rep-gnss.es](http://ntrip.rep-gnss.es/)

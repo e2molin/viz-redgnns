@@ -11,7 +11,7 @@
  * 🎃@e2molin
  */
 
-import { COLORES_CONEXION, PROPIETARY_SYMBOL, urlDataEstaciones, intervalRefresh } from './js/configs.js';
+import { COLORES_CONEXION, PROPIETARY_SYMBOL, urlDataEstaciones, intervalRefresh } from './js/config.js';
 import { addCustomPopup } from './js/custompopup.js'
 import { refreshLyrVector } from '/js/refreshLyrVector.js'
 

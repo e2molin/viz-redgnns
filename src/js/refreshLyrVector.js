@@ -10,7 +10,7 @@
  * 🎃@e2molin
  */
 
-import { urlDataEstaciones } from "./configs.js";
+import { urlDataEstaciones } from "./config.js";
 
 /**
  * Refresco de los datos de estaciones GNSS

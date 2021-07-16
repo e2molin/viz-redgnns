@@ -15,7 +15,9 @@
   <a title="Library" href="https://componentes.cnig.es/api-core/test.html" target="_blank">
     <img src="https://img.shields.io/static/v1?label=Lib&message=APICNIG&color=khaki">
   </a>      
-  <br />
+  <a title="Library" href="https://parceljs.org/cli.html" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=Build&message=Parcel&color=blue">
+  </a>     
   <br />
 </p>
 

@@ -37,6 +37,7 @@ Las Comunidades Autónomas y el [Instituto Geográfico Nacional](https://www.ign
   * 🔹 [Actualización de capas](#actualizacion)
 * 🛠 [Configuraciones](#configs)
 * 📐 [Stack de desarrollo](#stackdevel)
+  * 🔸 [Instalación de dependencias](#dependencies)
   * 🔸 [Arranque del servidor de desarrollo](#rundevel)
   * 🔸 [Despliegue en producción de la aplicación](#deployapp)
   * 📁 [Estructura del código](#scaffolding)
@@ -107,7 +108,7 @@ En el ecosistema Javascript, existen ciertas herramientas denominadas automatiza
 
 Este proyecto utiliza **Parcel** como empaquetador de aplicaciones web. Está basado en recursos. Un recurso puede ser cualquier archivo, sin embargo, parcel tiene soporte especial para algunos tipos de archivos como JavaScript, CSS, y HTML. [Parcel](https://parceljs.org/cli.html) analiza automáticamente las dependencias a las que se hace referencia en estos archivos y los incluye en el paquete de salida.
 
-### 🔸 Instalación de dependencias / *Install Dependencies* 
+### 🔸 Instalación de dependencias / *Install Dependencies*  <a name="dependencies"></a>
 
 [👆 Volver](#contenidos)
 

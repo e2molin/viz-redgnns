@@ -1,14 +1,17 @@
 # 👨‍💻 Develnotes - Visor GNSS
 
 <a name="contenidos"></a>
+
+## 📇 Contenidos
+
 * [🕵️‍♂️ Análisis previo de las necesidades](#analisis)
-* [🌅 Puntos de partida](#startpoints)
-  * [Requisitos tras propuesta inicial](#request1)
-  * [Requisitos tras revisión 1](#request2)
-  * [Refresco, cierre del popup y leyenda](#request3)
+* [🛫 Puntos de partida](#startpoints)
+  * [🔸 Requisitos tras propuesta inicial](#request1)
+  * [🔸 Requisitos tras revisión 1](#request2)
+  * [🔸 Refresco, cierre del popup y leyenda](#request3)
 * [⏳ Bitácora](#bitacora)
 * [📐 Stack de desarrollo](#stackdevel)
-  * [Configuraciones](#configs)
+  * 🛠 [Configuraciones](#configs)
 * [⛲️ Referencias](#referencias)
 
 ---
@@ -34,7 +37,7 @@ El nuevo visualizador utilizará la nueva versión de la APICNIG v3 o superior. 
 
 ---
 
-## 🌅 Puntos de partida <a name="startpoints"></a>
+## 🛫 Puntos de partida <a name="startpoints"></a>
 
 [👆 Volver](#contenidos)
 
@@ -226,7 +229,7 @@ Los ficheros para el despliegue aparecerán en la carpeta **dist**.
 └── ...
 ```
 
-### 🎶 Configuraciones <a name="configs"></a>
+### 🛠 Configuraciones <a name="configs"></a>
 
 [👆 Volver](#contenidos)
 

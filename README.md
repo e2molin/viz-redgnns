@@ -123,7 +123,7 @@ npm i
 [👆 Volver](#contenidos)
 
 ```bash
-parcel src/index.html
+parcel src/index.html # npm run dev
 ```
 
 ### 🔸 Despliegue en producción de la aplicación / *Deploy Application* <a name="deployapp"></a>
@@ -131,7 +131,7 @@ parcel src/index.html
 [👆 Volver](#contenidos)
 
 ```bash
-parcel build src/index.html --public-url ./
+parcel build src/index.html --public-url ./ # npm run buildv
 ```
 
 **Parcel** utiliza como minificador de **HTML** *htmlnano*. Como utilizamos ficheros **SVG**, añadimos la opción en el fichero de configuración *.htmlnanorc.js*

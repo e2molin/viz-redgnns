@@ -196,6 +196,8 @@ window.setTimeout(function() {
  * ⏳ Refresco periódico de la capa
  * 
  */
- window.setInterval(function() {
-  refreshLyrVector(REDGNSSCCAA);
-}, intervalRefresh);
+if (intervalRefresh>5000) {
+    window.setInterval(function() {
+        refreshLyrVector(REDGNSSCCAA);
+      }, intervalRefresh);
+}

@@ -88,7 +88,7 @@ El fichero [config.js](src/js/config.js) contiene agrupados todos los parámetro
 * Estados de conexión.
 * Colores de representación de los estados. [👉 Lista completa de colores](https://www.w3schools.com/colors/colors_names.asp)
 * Simbología aplicada en función del propietario. [👉 Lista completa de simbología](https://componentes.ign.es/api-core/wiki/#M.style.Point)
-* Tiempo de **refresco** de la capa de estaciones GNSS.
+* Tiempo de **refresco** de la capa de estaciones GNSS. Valor mínimo: 5000 ms.
 * Fichero geojson con los datos de representación.
 
 ## 📐 Stack de desarrollo <a name="stackdevel"></a>

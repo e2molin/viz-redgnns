@@ -28,11 +28,22 @@ const PROPIETARY_SYMBOL = {
   'DIRECÇÃO-GERAL DO TERRITÓRIO':M.style.form.NONE,
 }
 
+const PROPIETARY_RADIUS = {
+  'SITIBSA - IGN': 8,
+  'IGN': 8,
+  'IGNE, Servicio de Programas Geodesicos': 8,
+  'Instituto de Estadística y Cartografía de Andalucía - IGN': 8,
+  'Junta de Extremadura - IGN': 8,
+  'ITACyL - IGN': 8,
+}
+
+
+
 const  urlDataEstaciones = 'https://rep-gnss.es/visorgnss2/api/mapa/';
  //const  urlDataEstaciones = 'https://www.ign.es/resources/geodesia/GNSS/SPTR_geo.json';
 
 
 const intervalRefresh = 60000;  // Frecuencia de refresco en milisegundos. Valor mínimo 5000 ms
 
-export {COLORES_CONEXION, ESTADOS_CONEXION, PROPIETARY_SYMBOL, urlDataEstaciones, intervalRefresh}
+export {COLORES_CONEXION, ESTADOS_CONEXION, PROPIETARY_SYMBOL, PROPIETARY_RADIUS, urlDataEstaciones, intervalRefresh}
 

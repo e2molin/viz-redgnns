@@ -11,7 +11,7 @@
  * 🎃@e2molin
  */
 
-import { COLORES_CONEXION, PROPIETARY_SYMBOL, urlDataEstaciones, intervalRefresh } from './js/config.js';
+import { COLORES_CONEXION, PROPIETARY_SYMBOL,PROPIETARY_RADIUS, urlDataEstaciones, intervalRefresh } from './js/config.js';
 import { addCustomPopup } from './js/custompopup.js'
 import { refreshLyrVector } from '/js/refreshLyrVector.js'
 
@@ -53,7 +53,8 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                               * Como valor devuelto por el return es la clase de Mapea que representa a la forma: M.style.form.TRIANGLE para el triángulo y M.style.form.CIRCLE para el círculo
                               */
                              form: function(feature,map) {
-                                return  PROPIETARY_SYMBOL[feature.getAttribute('propietario')] || M.style.form.CIRCLE;;
+                                return  PROPIETARY_SYMBOL[feature.getAttribute('propietario')] || M.style.form.CIRCLE;
+
                                 /*
                                 const colorEstado = PROPIETARY_SYMBOL[feature.getAttribute('red')] || 'green';
                                  if (feature.getAttribute('red')==='ERGNSS'){
@@ -67,11 +68,12 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                              },
                              //e2m: luego sigo definiendo el resto de propiedades comunes a todos los símbolos       
                              radius: function(feature,map) {
-                                                 if (feature.getAttribute('red')==='ERGNSS'){
+                                return  PROPIETARY_RADIUS[feature.getAttribute('propietario')] || 5;
+                                                 /*if (feature.getAttribute('red')==='ERGNSS'){
                                                      return 8;
                                                  }else{
                                                      return 5;//5
-                                                 }
+                                                 }*/
                                      },
                              rotation: 3.14159,            // Giro el icono 180 en radianes
                              rotate: false,                // Activar rotacion con dispositivo
@@ -82,12 +84,17 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                                      return [0,-3]
                                  }
                              },               // Desplazamiento en pixeles en los ejes X, Y con respecto a su posición según la coordenada
-                             color: '#3e77f7',               // No es el color del símbolo, sino de un pequeño borde que ayuda al contraste con el mapa62, 119, 247
+                             color: function(feature,map) {
+                                let colorPunto;
+                                const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
+                                colorPunto = colorEstado;
+                                return colorPunto;
+                            }, // No es el color del símbolo, sino de un pequeño borde que ayuda al contraste con el mapa                          
                              fill: function(feature,map) {
-                                                 let colorPunto;
+                                                 /*let colorPunto;
                                                  const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
-                                                 colorPunto = colorEstado;
-                                                 return colorPunto;
+                                                 colorPunto = colorEstado;*/
+                                                 return  'transparent';
                                                  /*if ((feature.getAttribute('estado')==='Emitiendo')){
                                                      colorPunto = 'transparent';
                                                  }else{
@@ -102,10 +109,9 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                                                  }else{
                                                      return false;
                                                  }
-                                     },               // Degradado entre color de borde e interior
+                                     },                     // Degradado entre color de borde e interior
                              opacity: 1,                    // Transparencia. 0(transparente). 1(opaco).
                              snaptopixel: true,
-                             
                      },                                    
  });
  

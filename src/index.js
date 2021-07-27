@@ -53,7 +53,23 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                               * Como valor devuelto por el return es la clase de Mapea que representa a la forma: M.style.form.TRIANGLE para el triángulo y M.style.form.CIRCLE para el círculo
                               */
                              form: function(feature,map) {
-                                return  PROPIETARY_SYMBOL[feature.getAttribute('propietario')] || M.style.form.CIRCLE;
+                                if (feature.getAttribute('uso')==='1'){
+                                    return M.style.form.CIRCLE;     // CCAA
+                                }else if (feature.getAttribute('uso')==='2'){
+                                    return M.style.form.TRIANGLE;   // IGN
+                                }else if (feature.getAttribute('uso')==='3'){
+                                    if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                        return M.style.form.TRIANGLE;   // Compartido
+                                    }else{
+                                        return M.style.form.CIRCLE;   // Compartido
+                                    }
+                                }else if (feature.getAttribute('uso')==='4'){
+                                    return M.style.form.NONE;       // Portugal
+                                }else{
+                                    return M.style.form.NONE;       // Otras no 
+                                    
+                                }
+                                //return  PROPIETARY_SYMBOL[feature.getAttribute('propietario')] || M.style.form.CIRCLE;
 
                                 /*
                                 const colorEstado = PROPIETARY_SYMBOL[feature.getAttribute('red')] || 'green';
@@ -68,32 +84,60 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                              },
                              //e2m: luego sigo definiendo el resto de propiedades comunes a todos los símbolos       
                              radius: function(feature,map) {
-                                return  PROPIETARY_RADIUS[feature.getAttribute('propietario')] || 5;
-                                                 /*if (feature.getAttribute('red')==='ERGNSS'){
-                                                     return 8;
-                                                 }else{
-                                                     return 5;//5
-                                                 }*/
-                                     },
+                                if (feature.getAttribute('uso')==='1'){
+                                    return 5;     // CCAA
+                                }else if (feature.getAttribute('uso')==='2'){
+                                    return 9;   // IGN
+                                }else if (feature.getAttribute('uso')==='3'){
+                                    if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                        return 9;   // Compartido
+                                    }else{
+                                        return 5;   // Compartido
+                                    }
+                                }else if (feature.getAttribute('uso')==='4'){
+                                    return 0;       // Portugal
+                                }else{
+                                    return 0;       // Otras no 
+                                }                                 
+                                //return  PROPIETARY_RADIUS[feature.getAttribute('propietario')] || 5;
+
+                            },
                              rotation: 3.14159,            // Giro el icono 180 en radianes
                              rotate: false,                // Activar rotacion con dispositivo
                              offset: function(feature,map) {
-                                 if (feature.getAttribute('red')==='ERGNSS'){
-                                     return [0,0]
-                                 }else{
-                                     return [0,-3]
-                                 }
+                                if (feature.getAttribute('uso')==='1'){
+                                    return [0,-3];     // CCAA
+                                }else if (feature.getAttribute('uso')==='2'){
+                                    return [0,0];   // IGN
+                                }else if (feature.getAttribute('uso')==='3'){
+                                    if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                        return [0,0];   // Compartido
+                                    }else{
+                                        return [0,-3];   // Compartido
+                                    }
+                                }else if (feature.getAttribute('uso')==='4'){
+                                    return [0,0];       // Portugal
+                                }else{
+                                    return [0,0];       // Otras no 
+                                }                                  
+
                              },               // Desplazamiento en pixeles en los ejes X, Y con respecto a su posición según la coordenada
                              color: function(feature,map) {
                                 let colorPunto;
                                 const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
                                 colorPunto = colorEstado;
-                                return colorPunto;
+                                return colorPunto;  // '#3e77f7';
                             }, // No es el color del símbolo, sino de un pequeño borde que ayuda al contraste con el mapa                          
                              fill: function(feature,map) {
                                                  /*let colorPunto;
                                                  const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
                                                  colorPunto = colorEstado;*/
+                                                 /*if (feature.getAttribute('web').indexOf("IGN")===-1){
+                                                    let colorPunto;
+                                                    const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
+                                                    colorPunto = colorEstado;
+                                                    return colorPunto;
+                                                 }*/
                                                  return  'transparent';
                                                  /*if ((feature.getAttribute('estado')==='Emitiendo')){
                                                      colorPunto = 'transparent';
@@ -102,14 +146,30 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                                                  }
                                                  return colorPunto;*/
                              },//'#8A0829',                  // Color de relleno
-                             gradientcolor:  '#3e77f7',       // Color del borde
+                             //gradientcolor:  '#3e77f7',       // Color del borde
+                             gradientcolor: function(feature,map) {
+                                let colorPunto;
+                                const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
+                                colorPunto = colorEstado;
+                                return colorPunto; // '#3e77f7';
+                            },
                              gradient:  function(feature,map) {
-                                                 if (feature.getAttribute('red')==='ERGNSS'){
-                                                     return false;
-                                                 }else{
-                                                     return false;
-                                                 }
-                                     },                     // Degradado entre color de borde e interior
+                                if (feature.getAttribute('uso')==='1'){
+                                    return true;     // CCAA
+                                }else if (feature.getAttribute('uso')==='2'){
+                                    return false;   // IGN
+                                }else if (feature.getAttribute('uso')==='3'){
+                                    if (feature.getAttribute('web').indexOf("IGN")>=0){
+                                        return false;   // Compartido
+                                    }else{
+                                        return true;   // Compartido
+                                    }
+                                }else if (feature.getAttribute('uso')==='4'){
+                                    return false;       // Portugal
+                                }else{
+                                    return false;       // Otras no 
+                                }  
+                            },                     // Degradado entre color de borde e interior
                              opacity: 1,                    // Transparencia. 0(transparente). 1(opaco).
                              snaptopixel: true,
                      },                                    

@@ -131,6 +131,11 @@ Para mostrar la leyenda, incluimos un botón y un panel customizados según el e
 
 [👆 Volver](#contenidos)
 
+### 🔹 20200925 - Pequeños cambios en simbología
+
+* Cambiamos el color de la Conexión lenta de azul a rojo.
+* Corregido el valor del campo GLONASS en la ventana emergente.
+
 ### 🔹 20200708 - Cambiamos la URL del fichero con las estaciones
 
 La URL definitiva por ahora es

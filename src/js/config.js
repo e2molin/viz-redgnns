@@ -1,7 +1,7 @@
 const COLORES_CONEXION = {
   0: 'red',
   1: 'green',
-  2: 'blue',
+  2: 'red',
   3: 'orange',
 }
 

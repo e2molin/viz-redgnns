@@ -53,6 +53,9 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                               * Como valor devuelto por el return es la clase de Mapea que representa a la forma: M.style.form.TRIANGLE para el triángulo y M.style.form.CIRCLE para el círculo
                               */
                              form: function(feature,map) {
+
+                                //return  PROPIETARY_SYMBOL[feature.getAttribute('uso')] || feature.getAttribute('web').indexOf("IGN")>=0 ? M.style.form.TRIANGLE : M.style.form.CIRCLE;
+
                                 if (feature.getAttribute('uso')==='1'){
                                     return M.style.form.CIRCLE;     // CCAA
                                 }else if (feature.getAttribute('uso')==='2'){
@@ -67,8 +70,8 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                                     return M.style.form.NONE;       // Portugal
                                 }else{
                                     return M.style.form.NONE;       // Otras no 
-                                    
                                 }
+
                                 //return  PROPIETARY_SYMBOL[feature.getAttribute('propietario')] || M.style.form.CIRCLE;
 
                                 /*
@@ -84,6 +87,9 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                              },
                              //e2m: luego sigo definiendo el resto de propiedades comunes a todos los símbolos       
                              radius: function(feature,map) {
+
+                                //return  PROPIETARY_RADIUS[feature.getAttribute('uso')] || feature.getAttribute('web').indexOf("IGN")>=0 ? 9 : 5;
+
                                 if (feature.getAttribute('uso')==='1'){
                                     return 5;     // CCAA
                                 }else if (feature.getAttribute('uso')==='2'){

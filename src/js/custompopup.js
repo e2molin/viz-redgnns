@@ -72,7 +72,7 @@ const addCustomPopup = (mapAPICNIG) =>{
               <tr><td><span title="Propietario">🔐</span> ${feature.get('propietario')}</td></tr>
               <tr><td><span title="Tiempo">⌚️</span> ${feature.get('tiempo')}</td></tr>
               <tr><td><span title="Número satélites GPS">📡</span> GPS: ${feature.get('gps')}</td></tr>
-              <tr><td><span title="Número satélites GLONASS">📡</span> GLONASS: ${feature.get('glo')}</td></tr>
+              <tr><td><span title="Número satélites GLONASS">📡</span> GLONASS: ${feature.get('glonass')}</td></tr>
               </table>
               <hr/>
               `;

@@ -131,7 +131,7 @@ Para mostrar la leyenda, incluimos un botón y un panel customizados según el e
 
 [👆 Volver](#contenidos)
 
-### 🔹 20200925 - Pequeños cambios en simbología
+### 🔹 20200825 - Pequeños cambios en simbología
 
 * Cambiamos el color de la Conexión lenta de azul a rojo.
 * Corregido el valor del campo GLONASS en la ventana emergente.

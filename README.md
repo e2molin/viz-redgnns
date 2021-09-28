@@ -157,11 +157,24 @@ Los ficheros para el despliegue aparecerán en la carpeta **dist**.
 └── ...
 ```
 
+### 🔸 Repositorio AdminCNIG / *CNIG delivery* <a name="repocinig"></a>
+
+El fuente válido para el desarrollo se encuentra e esta cuenta de Github. Y su puesta en producción en la web de proyectos de DEVELMAP. Además, cuelgo el desarrollo compilado en el servicor de desarrollo, la máquina **CentOS** que tengo asignada.
+
+http://10.67.33.171/web/mashups/redgnss/
+
+Por último, subo al repo del CNIG el código
+
+https://github.com/administradorcnig/vis.REDGAE
+
+👀‼❗️ Al repo administradorcnig también subimos la carpeta dist
+
+
 ## 🚀 Despliegue <a name="deployserver"></a>
 
 [👆 Volver](#contenidos)
 
-* En web pública [https://projects.develmap.com/redgnss/](https://projects.develmap.com/redgnss/)
+* En web de proyectos de DEVELMAP [https://projects.develmap.com/apicnig/redgnss/](https://projects.develmap.com/apicnig/redgnss/)
 * En desarrollo en intranet [http://10.67.33.171/web/mashups/redgnss/](http://10.67.33.171/web/mashups/redgnss/)
 
 ## ⛲️ Referencias

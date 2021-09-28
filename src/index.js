@@ -154,13 +154,14 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                              },//'#8A0829',                  // Color de relleno
                              //gradientcolor:  '#3e77f7',       // Color del borde
                              gradientcolor: function(feature,map) {
-                                let colorPunto;
+                                /*let colorPunto;
                                 const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
                                 colorPunto = colorEstado;
-                                return colorPunto; // '#3e77f7';
+                                return colorPunto; // '#3e77f7';*/
                             },
                              gradient:  function(feature,map) {
-                                if (feature.getAttribute('uso')==='1'){
+                                // Eliminamos el gradiente según petición
+                                /*if (feature.getAttribute('uso')==='1'){
                                     return true;     // CCAA
                                 }else if (feature.getAttribute('uso')==='2'){
                                     return false;   // IGN
@@ -174,7 +175,7 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                                     return false;       // Portugal
                                 }else{
                                     return false;       // Otras no 
-                                }  
+                                }*/  
                             },                     // Degradado entre color de borde e interior
                              opacity: 1,                    // Transparencia. 0(transparente). 1(opaco).
                              snaptopixel: true,

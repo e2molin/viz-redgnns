@@ -131,6 +131,11 @@ Para mostrar la leyenda, incluimos un botón y un panel customizados según el e
 
 [👆 Volver](#contenidos)
 
+### 🔹 20220124 - Problemas con el popUp
+
+La función **forEachFeatureAtPixel** no funciona correctamente en simbologías transparentes o con grosor mínimo, ya que no detecta el *feature* de la capa vectorial y no lo devuelve. Esto sucede desde la puesta en marcha de la versión OL6. Para solucionarlo rellenamos el icono con un color semitransparente, para que OL no lo trate como transparente 100% y vuelva a funcionar **forEachFeatureAtPixel**.
+
+
 ### 🔹 20200928 - Pequeños cambios en simbología
 
 * Eliminamos el gradiente en los círculos.

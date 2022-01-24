@@ -137,20 +137,16 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                              fill: function(feature,map) {
                                                  /*let colorPunto;
                                                  const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
-                                                 colorPunto = colorEstado;*/
+                                                 colorPunto = colorEstado;
+                                                 return colorPunto;*/
                                                  /*if (feature.getAttribute('web').indexOf("IGN")===-1){
                                                     let colorPunto;
                                                     const colorEstado = COLORES_CONEXION[feature.getAttribute('numestado')] || 'green';
                                                     colorPunto = colorEstado;
                                                     return colorPunto;
                                                  }*/
-                                                 return  'transparent';
-                                                 /*if ((feature.getAttribute('estado')==='Emitiendo')){
-                                                     colorPunto = 'transparent';
-                                                 }else{
-                                                     colorPunto = 'red';
-                                                 }
-                                                 return colorPunto;*/
+                                                 return  'rgba(0,0,0,0.01)';
+                                                 
                              },//'#8A0829',                  // Color de relleno
                              //gradientcolor:  '#3e77f7',       // Color del borde
                              gradientcolor: function(feature,map) {
@@ -175,11 +171,12 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
                                     return false;       // Portugal
                                 }else{
                                     return false;       // Otras no 
-                                }*/  
-                            },                     // Degradado entre color de borde e interior
-                             opacity: 1,                    // Transparencia. 0(transparente). 1(opaco).
-                             snaptopixel: true,
-                     },                                    
+                                }*/
+                                //return true;
+                            },// Degradado entre color de borde e interior
+                            opacity: 1,                    // Transparencia. 0(transparente). 1(opaco).
+                            snaptopixel: true,
+                     }
  });
  
  REDGNSSCCAA.setStyle(estiloPoint);// Asociamos a la capa el estilo definido

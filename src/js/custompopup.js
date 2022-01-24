@@ -52,11 +52,9 @@ const addCustomPopup = (mapAPICNIG) =>{
 
 
   mapaOL.on('singleclick', function (evt) {
-        
     var cadOUT = "<hr/>";
 
     mapaOL.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-
       const nombreEstado = ESTADOS_CONEXION[feature.get('numestado')] || 'Emitiendo';
       const colorEstado = COLORES_CONEXION[feature.get('numestado')] || 'green';
 
@@ -77,6 +75,9 @@ const addCustomPopup = (mapAPICNIG) =>{
               <hr/>
               `;
 
+    },{
+      hitTolerance: 5,
+      checkWrapped: false,
     });
 
     if (cadOUT !== '<hr/>'){

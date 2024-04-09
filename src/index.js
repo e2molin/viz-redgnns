@@ -180,9 +180,9 @@ import { refreshLyrVector } from '/js/refreshLyrVector.js'
  });
  
  REDGNSSCCAA.setStyle(estiloPoint);// Asociamos a la capa el estilo definido
- 
+
  map.addLayers([REDGNSSCCAA]);// Añadimos array con todas las capas definidas, en nuestro caso 1
- 
+
  /**
   * 🔌 Definición de plugins para esta versión
   */
